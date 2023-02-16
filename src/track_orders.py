@@ -8,6 +8,14 @@ class TrackOrders:
     def add_new_order(self, customer, order, day):
         self.orders.append([customer, order, day])
 
+    def products_per_customer(self, customer):
+        products = {}
+        for name, product, _day in self.orders:
+            if name == customer:
+                products.setdefault(product, 0)
+                products[product] += 1
+        return products
+
     def get_most_ordered_dish_per_customer(self, customer):
         pass
 
