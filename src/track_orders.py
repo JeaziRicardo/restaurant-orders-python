@@ -17,7 +17,8 @@ class TrackOrders:
         return products
 
     def get_most_ordered_dish_per_customer(self, customer):
-        pass
+        product_customer = self.products_per_customer(customer)
+        return max(product_customer, key=product_customer.get)
 
     def get_never_ordered_per_customer(self, customer):
         pass
