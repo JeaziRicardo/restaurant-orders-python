@@ -21,7 +21,8 @@ class TrackOrders:
         return max(product_customer, key=product_customer.get)
 
     def get_never_ordered_per_customer(self, customer):
-        pass
+        products = {order[1] for order in self.orders}
+        return products.difference(self.products_per_customer(customer).keys())
 
     def get_days_never_visited_per_customer(self, customer):
         pass
